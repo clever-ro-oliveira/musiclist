@@ -106,24 +106,19 @@ class Playlist{
 	}
 	
 	
-}?>
-<html>
-	<body>
-		<?php
-		$cidade = $_GET['cidade'] ? $_GET['cidade'] : "";
-		if($cidade)
-		{
-			$busca = $cidade;
-			$busca .= $_GET['pais'] ? "," . $_GET['pais'] : "";
-			$play = new Playlist();
-			$resultado = $play->index($busca);
-			echo $resultado;
-		}
-		else
-		{
-			$arr = array("errorId" => 4, "ErrorDesc" => "Você precisa passar uma cidade como parâmetro");
-			echo json_encode($arr);
-		}
-		?>
-	</body>
-</html>
+}
+$cidade = $_GET['cidade'] ? $_GET['cidade'] : "";
+if($cidade)
+{
+	$busca = $cidade;
+	$busca .= $_GET['pais'] ? "," . $_GET['pais'] : "";
+	$play = new Playlist();
+	$resultado = $play->index($busca);
+	echo $resultado;
+}
+else
+{
+	$arr = array("errorId" => 4, "ErrorDesc" => "Você precisa passar uma cidade como parâmetro");
+	echo json_encode($arr);
+}
+?>
