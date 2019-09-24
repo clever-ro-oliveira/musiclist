@@ -36,7 +36,7 @@ class Playlist{
 					return json_encode($arr);
 				}
 				else
-					return json_encode($playlist);				
+					return $playlist;
 			}
 		}
 		else
@@ -99,7 +99,7 @@ class Playlist{
 			foreach($json['items'] as $i)
 				$arr[] = $i['track']['name'] . " (" . $i['track']['artists'][0]['name'] . ")";
 
-			return $arr;
+			return json_encode( $arr );
 		}
 		else
 			return "erro";
