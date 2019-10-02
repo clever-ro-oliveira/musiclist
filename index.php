@@ -32,7 +32,7 @@ class Playlist{
 			$this->token = $this->geraToken();
 			if($this->token == "erro")
 			{
-				$arr = array("errorId" => 2, "ErrorDesc" => "Não foi possível gerar o acess token para realizar a busca");
+				$arr = array("errorId" => 2, "ErrorDesc" => "Não foi possível gerar o access token para realizar a busca de músicas");
 				return json_encode($arr);
 			}
 			else
