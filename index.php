@@ -5,6 +5,7 @@ class Playlist{
 	public $temperatura;
 	public $token;
 	public $idLista;
+	public $playlist;
 	
 	public function index($city)
 	{
@@ -13,11 +14,20 @@ class Playlist{
 		if(is_numeric($this->temperatura))
 		{
 			if($this->temperatura >= 25)
+			{
 				$this->idLista = "37i9dQZF1DX1ngEVM0lKrb";//Playlist Pop Internacional do Spotify
+				$this->playlist = "Pop Internacional";
+			}
 			elseif($this->temperatura < 25 && $this->temperatura >= 10)
+			{
 				$this->idLista = "37i9dQZF1DWXRqgorJj26U";//Playlist Rock do Spotify
+				$this->playlist = "Rock";
+			}
 			else //<10
+			{
 				$this->idLista = "6dI1MmIBasFV59ritLTxIJ";//Playlist Clássicas - Piano e Violino
+				$this->playlist = "Clássicas - Piano e Violino";
+			}
 
 			$this->token = $this->geraToken();
 			if($this->token == "erro")
@@ -96,6 +106,8 @@ class Playlist{
 		if(isset($json['items']))
 		{
 			$arr = array();
+			$arr['temperatura'] = $this->temperatura;
+			$arr['playlist'] = $this->playlist;
 			foreach($json['items'] as $i)
 				$arr[] = $i['track']['name'] . " (" . $i['track']['artists'][0]['name'] . ")";
 
