@@ -109,7 +109,7 @@ class Playlist{
 			$arr['temperatura'] = $this->temperatura;
 			$arr['playlist'] = $this->playlist;
 			foreach($json['items'] as $i)
-				$arr[] = $i['track']['name'] . " (" . $i['track']['artists'][0]['name'] . ")";
+				$arr['musicas'][] = $i['track']['name'] . " (" . $i['track']['artists'][0]['name'] . ")";
 
 			return json_encode( $arr );
 		}
