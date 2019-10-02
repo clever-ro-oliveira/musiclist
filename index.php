@@ -107,11 +107,12 @@ class Playlist{
 	
 	
 }
-$cidade = $_GET['cidade'] ? $_GET['cidade'] : "";
+
+$cidade = $_REQUEST['cidade'] ? $_REQUEST['cidade'] : "";
 if($cidade)
 {
 	$busca = $cidade;
-	$busca .= $_GET['pais'] ? "," . $_GET['pais'] : "";
+	$busca .= $_REQUEST['pais'] ? "," . $_REQUEST['pais'] : "";
 	$play = new Playlist();
 	$resultado = $play->index($busca);
 	echo $resultado;
